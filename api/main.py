@@ -15,3 +15,10 @@ load_dotenv()
 
 app = FastAPI(title="Journal API", description="A simple journal API for tracking daily work, struggles, and intentions")
 app.include_router(journal_router)
+
+logger = logging.getLogger(__name__)
+
+logging.basicConfig(level=logging.INFO)
+console_handler = logging.StreamHandler()
+logger.addHandler(console_handler)
+logger.info("Started") 
